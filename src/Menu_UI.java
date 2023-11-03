@@ -1,9 +1,11 @@
 package src;
-public class CMD_UI implements UI {
+
+
+public class Menu_UI implements UI {
     private InputReader inputReader;
     private CurrencyRepository currencyRepository;
 
-    public CMD_UI(InputReader inputReader, CurrencyRepository currencyRepository) {
+    public Menu_UI(InputReader inputReader, CurrencyRepository currencyRepository) {
         this.inputReader = inputReader;
         this.currencyRepository = currencyRepository;
     }

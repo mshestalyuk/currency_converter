@@ -1,5 +1,5 @@
 package src;
-
+// this class converting our data
 public class CurrencyConverter {
     private CurrencyRepository currencyRepository;
 

@@ -1,7 +1,10 @@
+// This is the scraper that parse XML file and saves data to class CurrencyRepository, data is saved in CurrencyData type
+
 package src;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -44,6 +47,7 @@ public class Scraper implements CurrencyRepository {
 
     }
 
+    // this is getter that returns currency By Code, overrided from CurrencyRepository getter 
     @Override
     public CurrencyData getCurrencyByCode(String code) {
         if (currencies.containsKey(code)) {

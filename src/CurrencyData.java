@@ -1,3 +1,4 @@
+// This class have store our data 
 package src;
 public class CurrencyData {
     private String currencyCode;

@@ -2,7 +2,7 @@ package src;
 import java.util.Scanner;
 
 
-public class CMDInput implements InputReader {
+public class Menu_CMD implements InputReader {
     private Scanner scanner = new Scanner(System.in);
 
     @Override
