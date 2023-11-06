@@ -1,24 +1,24 @@
 package src;
 // this class converting our data
 public class CurrencyConverter {
-    private CurrencyRepository currencyRepository;
+    private CurrencyRepository currencyRepo;
 
     private static CurrencyConverter instance;
 
-    private CurrencyConverter(CurrencyRepository currencyRepository) {
-        this.currencyRepository = currencyRepository;
+    private CurrencyConverter(CurrencyRepository currencyRepo) {
+        this.currencyRepo = currencyRepo;
     }
 
-    public static CurrencyConverter getInstance(CurrencyRepository currencyRepository) {
+    public static CurrencyConverter getInstance(CurrencyRepository currencyRepo) {
         if (instance == null) {
-            instance = new CurrencyConverter(currencyRepository);
+            instance = new CurrencyConverter(currencyRepo);
         }
         return instance;
     }
 
     public DTO_Response convert(DTO_Request request) {
-        CurrencyDictionary sourceCurrencyData = currencyRepository.getCurrencyByCode(request.getSourceCurrencyCode());
-        CurrencyDictionary targetCurrencyData = currencyRepository.getCurrencyByCode(request.getTargetCurrencyCode());
+        CurrencyDictionary sourceCurrencyData = currencyRepo.getCurrencyByCode(request.getSourceCurrencyCode());
+        CurrencyDictionary targetCurrencyData = currencyRepo.getCurrencyByCode(request.getTargetCurrencyCode());
 
         if (sourceCurrencyData == null || targetCurrencyData == null) {
             throw new IllegalArgumentException("Invalid currency codes");

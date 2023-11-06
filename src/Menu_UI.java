@@ -2,12 +2,12 @@ package src;
 
 
 public class Menu_UI implements UI {
-    private Menu_CMD inputReader;
-    private CurrencyRepository currencyRepository;
+    private Menu_CMD input;
+    private CurrencyRepository currencyRepo;
 
-    public Menu_UI(Menu_CMD inputReader, CurrencyRepository currencyRepository) {
-        this.inputReader = inputReader;
-        this.currencyRepository = currencyRepository;
+    public Menu_UI(Menu_CMD input, CurrencyRepository currencyRepo) {
+        this.input = input;
+        this.currencyRepo = currencyRepo;
     }
 
 
@@ -23,7 +23,7 @@ public class Menu_UI implements UI {
         double amount;
         while (true) {
             try {
-                amount = Double.parseDouble(inputReader.readInput("Enter the amount: "));
+                amount = Double.parseDouble(input.readInput("Enter the amount: "));
                 return amount;
             } catch (NumberFormatException e) {
                 System.out.println("Invalid amount. Please enter a valid number.");
@@ -33,8 +33,8 @@ public class Menu_UI implements UI {
 
     private String getValidCurrencyCode(String prompt) {
         while (true) {
-            String code = inputReader.readInput(prompt);
-            if (currencyRepository.getCurrencyByCode(code) != null) {
+            String code = input.readInput(prompt);
+            if (currencyRepo.getCurrencyByCode(code) != null) {
                 return code;
             } else {
                 System.out.println("Invalid currency code. Please enter a valid code.");
