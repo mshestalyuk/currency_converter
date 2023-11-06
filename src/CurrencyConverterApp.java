@@ -17,7 +17,7 @@ public class CurrencyConverterApp {
                     boolean validAmount = false;
                     boolean validSourceCurrency = false;
                     boolean validTargetCurrency = false;
-                    RequestObject userRequest = null;
+                    DTO_Request userRequest = null;
 
                     do {
                         try {
@@ -33,7 +33,7 @@ public class CurrencyConverterApp {
                             if (currencyRepository.getCurrencyByCode(targetCurrencyCode) == null) {
                                 throw new IllegalArgumentException("Not valid target currency code.");
                             }
-                            userRequest = new RequestObject(amount, sourceCurrencyCode, targetCurrencyCode);
+                            userRequest = new DTO_Request(amount, sourceCurrencyCode, targetCurrencyCode);
                             validAmount = true;
                             validSourceCurrency = true;
                             validTargetCurrency = true;
@@ -42,13 +42,13 @@ public class CurrencyConverterApp {
                         }
                     } while (!validAmount || !validSourceCurrency || !validTargetCurrency);
 
-                    ResponseObject response = currencyConverter.convert(userRequest);
+                    DTO_Response response = currencyConverter.convert(userRequest);
                     userInterface.displayResult(response);
                     break;
                 case "2":
-                    List<CurrencyData> currencies = currencyRepository.getAllCurrencies();
+                    List<CurrencyDictionary> currencies = currencyRepository.getAllCurrencies();
                     System.out.println("Available currencies:");
-                    for (CurrencyData currency : currencies) {
+                    for (CurrencyDictionary currency : currencies) {
                         System.out.println(currency.getCurrencyCode());
                     }
                     break;

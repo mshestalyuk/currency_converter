@@ -1,11 +1,11 @@
 // This class have store our data 
 package src;
-public class CurrencyData {
+public class CurrencyDictionary {
     private String currencyCode;
     private double exchangeRate;
     private double factor;
 
-    public CurrencyData(String currencyCode, double exchangeRate, double factor) {
+    public CurrencyDictionary(String currencyCode, double exchangeRate, double factor) {
         this.currencyCode = currencyCode;
         this.exchangeRate = exchangeRate;
         this.factor = factor;

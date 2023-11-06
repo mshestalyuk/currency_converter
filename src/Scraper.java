@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Scraper implements CurrencyRepository {
-    private Map<String, CurrencyData> currencies = new HashMap<>();
+    private Map<String, CurrencyDictionary> currencies = new HashMap<>();
 
     public Scraper() {
 
@@ -37,7 +37,7 @@ public class Scraper implements CurrencyRepository {
                 String code = currencyElement.getElementsByTagName("kod_waluty").item(0).getTextContent();
                 double exchangeRate = Double.parseDouble(currencyElement.getElementsByTagName("kurs_sredni").item(0).getTextContent().replace(",", "."));
                 double factor = Double.parseDouble(currencyElement.getElementsByTagName("przelicznik").item(0).getTextContent().replace(",", "."));
-                currencies.put(code, new CurrencyData(code, exchangeRate, factor));
+                currencies.put(code, new CurrencyDictionary(code, exchangeRate, factor));
 
             }
         } catch (Exception err) {
@@ -49,7 +49,7 @@ public class Scraper implements CurrencyRepository {
 
     // this is getter that returns currency By Code, overrided from CurrencyRepository getter 
     @Override
-    public CurrencyData getCurrencyByCode(String code) {
+    public CurrencyDictionary getCurrencyByCode(String code) {
         if (currencies.containsKey(code)) {
             return currencies.get(code);
         } else {
@@ -58,12 +58,12 @@ public class Scraper implements CurrencyRepository {
     }
 
     @Override
-    public List<CurrencyData> getAllCurrencies() {
+    public List<CurrencyDictionary> getAllCurrencies() {
         return new ArrayList<>(currencies.values());
     }
 
     @Override
-    public List<CurrencyData> getAllExchangeRates() {
+    public List<CurrencyDictionary> getAllExchangeRates() {
         return new ArrayList<>(currencies.values());
     }
 }

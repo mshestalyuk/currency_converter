@@ -5,9 +5,9 @@ import java.util.List;
 
 
 interface CurrencyRepository {
-    CurrencyData getCurrencyByCode(String code);
+    CurrencyDictionary getCurrencyByCode(String code);
 
-    List<CurrencyData> getAllCurrencies();
+    List<CurrencyDictionary> getAllCurrencies();
 
-    List<CurrencyData> getAllExchangeRates();
+    List<CurrencyDictionary> getAllExchangeRates();
 }

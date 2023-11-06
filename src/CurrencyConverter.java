@@ -16,9 +16,9 @@ public class CurrencyConverter {
         return instance;
     }
 
-    public ResponseObject convert(RequestObject request) {
-        CurrencyData sourceCurrencyData = currencyRepository.getCurrencyByCode(request.getSourceCurrencyCode());
-        CurrencyData targetCurrencyData = currencyRepository.getCurrencyByCode(request.getTargetCurrencyCode());
+    public DTO_Response convert(DTO_Request request) {
+        CurrencyDictionary sourceCurrencyData = currencyRepository.getCurrencyByCode(request.getSourceCurrencyCode());
+        CurrencyDictionary targetCurrencyData = currencyRepository.getCurrencyByCode(request.getTargetCurrencyCode());
 
         if (sourceCurrencyData == null || targetCurrencyData == null) {
             throw new IllegalArgumentException("Invalid currency codes");
@@ -27,6 +27,6 @@ public class CurrencyConverter {
         double convertedAmount = (request.getAmount() * sourceCurrencyData.getExchangeRate() / sourceCurrencyData.getFactor()) /
                 (targetCurrencyData.getExchangeRate() / targetCurrencyData.getFactor());
 
-        return new ResponseObject(convertedAmount, request.getTargetCurrencyCode());
+        return new DTO_Response(convertedAmount, request.getTargetCurrencyCode());
     }
 }

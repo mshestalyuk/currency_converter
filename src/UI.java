@@ -1,7 +1,7 @@
 package src;
 public interface UI {
-    RequestObject getUserInput();
-    void displayResult(ResponseObject response);
+    DTO_Request getUserInput();
+    void displayResult(DTO_Response response);
     void displayMenu();
 
 }

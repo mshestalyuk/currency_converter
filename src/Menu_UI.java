@@ -12,11 +12,11 @@ public class Menu_UI implements UI {
 
 
     @Override
-    public RequestObject getUserInput() {
+    public DTO_Request getUserInput() {
         double amount = getValidAmount();
         String sourceCurrencyCode = getValidCurrencyCode("Enter the source currency code: ");
         String targetCurrencyCode = getValidCurrencyCode("Enter the target currency code: ");
-        return new RequestObject(amount, sourceCurrencyCode, targetCurrencyCode);
+        return new DTO_Request(amount, sourceCurrencyCode, targetCurrencyCode);
     }
 
     private double getValidAmount() {
@@ -43,7 +43,7 @@ public class Menu_UI implements UI {
     }
 
     @Override
-    public void displayResult(ResponseObject response) {
+    public void displayResult(DTO_Response response) {
         System.out.println(response.getConvertedAmount() + " " + response.getTargetCurrencyCode());
     }
 

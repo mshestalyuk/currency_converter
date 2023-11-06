@@ -1,10 +1,10 @@
 package src;
-public class RequestObject {
+public class DTO_Request {
     private double amount;
     private String sourceCurrencyCode;
     private String targetCurrencyCode;
 
-    public RequestObject(double amount, String sourceCurrencyCode, String targetCurrencyCode) {
+    public DTO_Request(double amount, String sourceCurrencyCode, String targetCurrencyCode) {
         this.amount = amount;
         this.sourceCurrencyCode = sourceCurrencyCode;
         this.targetCurrencyCode = targetCurrencyCode;
