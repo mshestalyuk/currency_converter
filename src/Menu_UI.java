@@ -2,10 +2,10 @@ package src;
 
 
 public class Menu_UI implements UI {
-    private InputReader inputReader;
+    private Menu_CMD inputReader;
     private CurrencyRepository currencyRepository;
 
-    public Menu_UI(InputReader inputReader, CurrencyRepository currencyRepository) {
+    public Menu_UI(Menu_CMD inputReader, CurrencyRepository currencyRepository) {
         this.inputReader = inputReader;
         this.currencyRepository = currencyRepository;
     }

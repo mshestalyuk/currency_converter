@@ -6,7 +6,7 @@ public class CurrencyConverterApp {
     public void run() {
         CurrencyRepository currencyRepository = new Scraper();
         CurrencyConverter currencyConverter = CurrencyConverter.getInstance(currencyRepository);
-        InputReader inputReader = new Menu_CMD();
+        Menu_CMD inputReader = new Menu_CMD();
         UI userInterface = new Menu_UI(inputReader, currencyRepository);
 
         while (true) {
