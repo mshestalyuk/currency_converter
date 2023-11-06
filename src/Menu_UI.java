@@ -52,6 +52,7 @@ public class Menu_UI implements UI {
         System.out.println("Menu:");
         System.out.println("1. Exchange");
         System.out.println("2. List of available currency");
-        System.out.println("3. Exit");
+        System.out.println("3. Add currency");
+        System.out.println("4. Exit");
     }
 }

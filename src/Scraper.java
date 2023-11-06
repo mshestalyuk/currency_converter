@@ -56,7 +56,18 @@ public class Scraper implements CurrencyRepository {
             throw new IllegalArgumentException("Currency with code " + code + " not found.");
         }
     }
-
+    
+    @Override
+    public CurrencyDictionary addCurrencyByCode(String code, double exchangeRate, double factor) {
+        if (!currencies.containsKey(code)) {
+            CurrencyDictionary newCurrency = new CurrencyDictionary(code, exchangeRate, factor);
+            currencies.put(code, newCurrency);
+            return newCurrency;
+        } else {
+            throw new IllegalArgumentException("Currency with code " + code + " already exists.");
+        }
+    }
+    
     @Override
     public List<CurrencyDictionary> getAllCurrencies() {
         return new ArrayList<>(currencies.values());

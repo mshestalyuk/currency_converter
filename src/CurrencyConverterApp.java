@@ -53,6 +53,19 @@ public class CurrencyConverterApp {
                     }
                     break;
                 case "3":
+                    try {
+                        String newCurrencyCode = inputReader.readInput("Enter the new currency code to add: ");
+                        double exchangeRate = Double.parseDouble(inputReader.readInput("Enter the exchange rate: "));
+                        double factor = Double.parseDouble(inputReader.readInput("Enter the factor: "));
+                        currencyRepository.addCurrencyByCode(newCurrencyCode, exchangeRate, factor);
+                        System.out.println("Currency with code " + newCurrencyCode + " added successfully with exchange rate " + exchangeRate + " and factor " + factor + ".");
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid number format. Please enter valid numbers for exchange rate and factor.");
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                    break;
+                case "4":
                     System.out.println("Exit");
                     System.exit(0);
                 default:
